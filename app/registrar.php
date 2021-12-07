@@ -18,6 +18,10 @@ if($conexion)
         $telefono = $_POST["telefono"];
         $email = $_POST["email"];
         $contrasena = $_POST["contrasena"];
+        
+        //cifro la contrasena
+        $contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
+        
         $nacimiento = $_POST["nacimiento"];
         #Consulta
         $consulta = "INSERT INTO usuario (NICK, PASSWD, EMAIL, DNI, NOMBRE, APELLIDOS, TELEFONO, FECHANACIMIENTO) VALUES ('$nick', '$contrasena', '$email', '$dni', '$nombre', '$apellidos', '$telefono', '$nacimiento')";

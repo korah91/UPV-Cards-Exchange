@@ -9,15 +9,24 @@ include_once("conexion.php");
 function existe_Usuario($usuario, $contrasena){
     global $conexion;
     //Creamos la consulta
-    $consulta = "SELECT *FROM usuario WHERE NICK = '$usuario' AND PASSWD = '$contrasena'";
+    
+    //$consulta = "SELECT * FROM usuario WHERE NICK = '$usuario' AND PASSWD = '$contrasena'";
+    $consulta = "SELECT PASSWD FROM usuario WHERE NICK = '$usuario'";
     //La ejecutamos
     $fin = mysqli_query($conexion, $consulta);
-
-    if(!$fin)
+    $hashAlmacenado = mysqli_fetch_assoc($fin);
+    $hashAlmacenado = $hashAlmacenado["PASSWD"];
+    
+    //Compruebo que la contrasena es correcta
+    if(password_verify($contrasena, $hashAlmacenado))
     {
-        echo "fallo";
+        return true;
     }
-
+    else
+    {
+        return false;
+    }
+/*
     //Si encuentra al usuario habrá una fila, si no no habrá filas
     if($fin->num_rows > 0){
         return true;
@@ -25,6 +34,7 @@ function existe_Usuario($usuario, $contrasena){
     else{
         return false;
     }
+*/
 }
 //Funcion para establecer el usuario
 #Si se ha pulsado el boton_login y hay usuario y contrasena
