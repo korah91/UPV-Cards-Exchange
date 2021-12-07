@@ -77,7 +77,7 @@ INSERT INTO `intentos` (`usuario`, `fecha`, `exitoso`) VALUES
 
 CREATE TABLE `usuario` (
   `NICK` varchar(20) NOT NULL,
-  `PASSWD` varchar(20) NOT NULL,
+  `PASSWD` varchar(255) NOT NULL,
   `EMAIL` varchar(20) DEFAULT NULL,
   `DNI` varchar(10) DEFAULT NULL,
   `NOMBRE` varchar(10) DEFAULT NULL,
