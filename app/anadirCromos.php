@@ -124,5 +124,6 @@ else{
           <a href="logout.php" class="btn-flotante">Cerrar Sesion</a>
   </div>
 </body>
+<script src = "js/inactividad.js"></script>
 </html>
 

@@ -172,5 +172,8 @@ else{
 
   <script src = "js/modificarDatos.js"></script>
 </body>
+
+<script src = "js/inactividad.js"></script>
+
 </html>
 

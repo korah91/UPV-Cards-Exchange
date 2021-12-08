@@ -163,8 +163,7 @@ if(isset($_POST["boton_editar"]))
   <script src = "js/modificarCromo.js"></script>
 </body>
 
-
-
+<script src = "js/inactividad.js"></script>
 
 </html>
 

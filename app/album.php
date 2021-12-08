@@ -122,4 +122,5 @@
 ?>
 
 </body>
+<script src = "js/inactividad.js"></script>
 </html>
