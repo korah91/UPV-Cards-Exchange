@@ -12,7 +12,7 @@ function inactividad() {
 
     function resetTimer() {
         clearTimeout(t);
-        t = setTimeout(logout,5000);  // tiempo en milisegundos 60*1000
+        t = setTimeout(logout,60000);  // tiempo en milisegundos 60*1000
     }
 }
 inactividad();
