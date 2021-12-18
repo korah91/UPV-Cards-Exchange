@@ -81,8 +81,8 @@
         <input type="password" name = "contrasena2" id = "contrasena2" placeholder="Introduzca su contraseña *" maxlength="20" pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$" required>
       
         <!-- INPUT CUENTABANCO -->
-        <label for="cuentaBanco">Cuenta Bancaria *</label>
-        <input type="bien" name = "cuentaBanco" placeholder="Introduzca su cuenta" maxlength="30">
+        <label for="cuentaBanco">Cuenta Bancaria (sin IBAN)*</label>
+        <input type="bien" name = "cuentaBanco" placeholder="Introduzca su cuenta" pattern = "\d{20}" maxlength="20">
       
         <input type="submit" name="boton_registro">
         <a href="iniSesion.php">¿Ya tienes una cuenta?</a>

@@ -26,7 +26,7 @@ if($conexion)
 		$cuenta = @openssl_encrypt($cuenta, "AES-256-CBC", $claveCuentaBanco);
         #Consulta
         $consulta = "UPDATE usuario SET NICK='$nick',EMAIL='$email',DNI='$dni',NOMBRE='$nombre',APELLIDOS='$apellidos',TELEFONO='$telefono',FECHANACIMIENTO='$nacimiento',CUENTABANCO='$cuenta' WHERE NICK='$usuario'";
-        
+
         $fin = mysqli_query($conexion, $consulta);
         if($fin)
         {
@@ -180,13 +180,14 @@ else{
             echo openssl_decrypt($lista["CUENTABANCO"], "AES-256-CBC", $claveCuentaBanco);
         ?>
         </label>
-        <input type="bien" name = "cuentaBanco" placeholder="Introduzca su cuenta bancaria *" value= 
+                <!-- INPUT CUENTABANCO -->
+        <label for="cuentaBanco">Cuenta Bancaria (sin IBAN)*</label>
+        <input type="bien" name = "cuentaBanco" placeholder="Introduzca su cuenta" pattern = "\d{20}" maxlength="20" value =
         <?php 
             $claveCuentaBanco = "kePaReChe2021Joel";
 
             echo openssl_decrypt($lista["CUENTABANCO"], "AES-256-CBC", $claveCuentaBanco);
-        ?>
-        required>
+        ?> required>
         
         <input type="submit" name="boton_registro" value="Guardar cambios">
       </form> 
