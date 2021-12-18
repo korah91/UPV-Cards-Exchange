@@ -19,7 +19,8 @@ if($conexion)
         $email = mysqli_real_escape_string($conexion, $_POST["email"]);
         $contrasena = mysqli_real_escape_string($conexion, $_POST["contrasena"]);
         $cuenta = mysqli_real_escape_string($conexion, $_POST["cuentaBanco"]);
-		$cuenta = preg_replace('/\s+/', '', $cuenta);
+		//quito espacios de la cuenta
+        $cuenta = preg_replace('/\s+/', '', $cuenta);
         //cifro la contrasena
         $contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
         //cifro la cuenta bancaria con nuestra clave kePaReChe2021Joel

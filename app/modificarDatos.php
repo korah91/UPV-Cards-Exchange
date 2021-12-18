@@ -8,16 +8,25 @@ if($conexion)
     if(isset($_POST["boton_registro"]))
     {
         #Tras las comprobaciones guardo las variables
-        $dni = $_POST["dni"];
-        $nick = $_POST["usuario"];
-        $nombre = $_POST["nombre"];
-        $apellidos = $_POST["apellidos"];
-        $telefono = $_POST["telefono"];
-        $email = $_POST["email"];
+        $dni = mysqli_real_escape_string($conexion, $_POST["dni"]);
+        $nick = mysqli_real_escape_string($conexion, $_POST["usuario"]);
+        $nombre = mysqli_real_escape_string($conexion, $_POST["nombre"]);
+        $apellidos = mysqli_real_escape_string($conexion, $_POST["apellidos"]);
+        $telefono = mysqli_real_escape_string($conexion, $_POST["telefono"]);
+        $email = mysqli_real_escape_string($conexion, $_POST["email"]);
         $nacimiento = $_POST["nacimiento"];
         $usuario = $_SESSION["usuario"];
+        $cuenta = mysqli_real_escape_string($conexion, $_POST["cuentaBanco"]);
+		//quito espacios de la cuenta
+        $cuenta = preg_replace('/\s+/', '', $cuenta);
+        //cifro la contrasena
+        $contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
+        //cifro la cuenta bancaria con nuestra clave kePaReChe2021Joel
+		$claveCuentaBanco = "kePaReChe2021Joel";
+		$cuenta = @openssl_encrypt($cuenta, "AES-256-CBC", $claveCuentaBanco);
         #Consulta
-        $consulta = "UPDATE usuario SET NICK='$nick',EMAIL='$email',DNI='$dni',NOMBRE='$nombre',APELLIDOS='$apellidos',TELEFONO='$telefono',FECHANACIMIENTO='$nacimiento' WHERE NICK='$usuario'";
+        $consulta = "UPDATE usuario SET NICK='$nick',EMAIL='$email',DNI='$dni',NOMBRE='$nombre',APELLIDOS='$apellidos',TELEFONO='$telefono',FECHANACIMIENTO='$nacimiento',CUENTABANCO='$cuenta' WHERE NICK='$usuario'";
+        
         $fin = mysqli_query($conexion, $consulta);
         if($fin)
         {
