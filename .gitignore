@@ -1,0 +1,9 @@
+
+mysql/multi-master.info
+mysql/ibtmp1
+mysql/ibdata1
+mysql/ib_logfile0
+mysql/ib_buffer_pool
+mysql/ddl_recovery.log
+mysql/aria_log_control
+mysql/aria_log.00000001

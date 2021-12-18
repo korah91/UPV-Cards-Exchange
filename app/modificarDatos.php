@@ -161,6 +161,24 @@ else{
             ?>
         </label>
         <input type="date" name = "nacimiento" placeholder="Introduzca su nacimiento *" value= <?php echo $lista["FECHANACIMIENTO"]; ?> required>
+    
+        <!-- INPUT CUENTABANCO -->
+        <label for="cuentaBanco">Cuenta del Banco: 
+        <?php
+            //La clave para desencriptar las cuentas bancarias es la siguiente
+            $claveCuentaBanco = "kePaReChe2021Joel";
+
+            echo openssl_decrypt($lista["CUENTABANCO"], "AES-256-CBC", $claveCuentaBanco);
+        ?>
+        </label>
+        <input type="bien" name = "cuentaBanco" placeholder="Introduzca su cuenta bancaria *" value= 
+        <?php 
+            $claveCuentaBanco = "kePaReChe2021Joel";
+
+            echo openssl_decrypt($lista["CUENTABANCO"], "AES-256-CBC", $claveCuentaBanco);
+        ?>
+        required>
+        
         <input type="submit" name="boton_registro" value="Guardar cambios">
       </form> 
 
