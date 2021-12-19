@@ -82,7 +82,7 @@
       
         <!-- INPUT CUENTABANCO -->
         <label for="cuentaBanco">Cuenta Bancaria (sin IBAN)*</label>
-        <input type="bien" name = "cuentaBanco" placeholder="Introduzca su cuenta" pattern = "\d{20}" maxlength="20">
+        <input type="bien" name = "cuentaBanco" placeholder="Introduzca su cuenta" pattern = "\d{20}" maxlength="20" required>
       
         <input type="submit" name="boton_registro">
         <a href="iniSesion.php">¿Ya tienes una cuenta?</a>
