@@ -1,6 +1,12 @@
 # UPV Cards Exchange
 ### Kepa Reche y Joel Moisés García
 
+Utilizados: 
+- Docker
+- PHP
+- JavaScript
+- CSS
+- HTML
 UPV Cards Exchange es una página web diseñada por dos alumnos de la Escuela de Ingeniería de San Mamés orientada a la colección de cromos de jugadores de la Liga de Fútbol Profesional
 
 ## Funcionalidades
